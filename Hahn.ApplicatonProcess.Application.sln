@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.ApplicatonProcess.Appl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.ApplicatonProcess.May2020.Domain", "Hahn.ApplicatonProcess.May2020.Domain\Hahn.ApplicatonProcess.May2020.Domain.csproj", "{F02333A0-3FCF-4387-B087-8B186D3508F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.ApplicatonProcess.May2020.Web", "Hahn.ApplicatonProcess.May2020.Web\Hahn.ApplicatonProcess.May2020.Web.csproj", "{12F88661-FDC4-41FD-A2AA-C58724A125DE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.ApplicatonProcess.May2020.Web", "Hahn.ApplicatonProcess.May2020.Web\Hahn.ApplicatonProcess.May2020.Web.csproj", "{1DB62E8B-6CA6-4797-A742-233A798BE3ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +21,9 @@ Global
 		{F02333A0-3FCF-4387-B087-8B186D3508F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F02333A0-3FCF-4387-B087-8B186D3508F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F02333A0-3FCF-4387-B087-8B186D3508F5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{12F88661-FDC4-41FD-A2AA-C58724A125DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{12F88661-FDC4-41FD-A2AA-C58724A125DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{12F88661-FDC4-41FD-A2AA-C58724A125DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{12F88661-FDC4-41FD-A2AA-C58724A125DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DB62E8B-6CA6-4797-A742-233A798BE3ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DB62E8B-6CA6-4797-A742-233A798BE3ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DB62E8B-6CA6-4797-A742-233A798BE3ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DB62E8B-6CA6-4797-A742-233A798BE3ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
