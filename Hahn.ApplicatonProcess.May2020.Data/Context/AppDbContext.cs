@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Hahn.ApplicatonProcess.May2020.Data.Context
 {
-    public class AppContext : DbContext
+    public class AppDbContext : DbContext
     {
-        public AppContext(DbContextOptions options) : base(options)
+        public AppDbContext(DbContextOptions options) : base(options)
         {
         }
 
