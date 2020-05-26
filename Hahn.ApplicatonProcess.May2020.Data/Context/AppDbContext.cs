@@ -1,4 +1,4 @@
-﻿using Hahn.ApplicatonProcess.May2020.Domain.Models;
+﻿using Hahn.ApplicatonProcess.May2020.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Hahn.ApplicatonProcess.May2020.Data.Context

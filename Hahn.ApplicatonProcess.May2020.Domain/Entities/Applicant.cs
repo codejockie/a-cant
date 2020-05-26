@@ -1,7 +1,7 @@
 ﻿using System;
-using Hahn.ApplicatonProcess.May2020.Domain.Models.Base;
+using Hahn.ApplicatonProcess.May2020.Domain.Entities.Base;
 
-namespace Hahn.ApplicatonProcess.May2020.Domain.Models
+namespace Hahn.ApplicatonProcess.May2020.Domain.Entities
 {
     public class Applicant : Entity
     {

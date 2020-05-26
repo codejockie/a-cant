@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Hahn.ApplicatonProcess.May2020.Domain.Models.Base;
+using Hahn.ApplicatonProcess.May2020.Domain.Entities.Base;
 
 namespace Hahn.ApplicatonProcess.May2020.Domain.Repositories
 {

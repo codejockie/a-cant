@@ -1,5 +1,5 @@
 ﻿using System;
-using Hahn.ApplicatonProcess.May2020.Domain.Models;
+using Hahn.ApplicatonProcess.May2020.Domain.Entities;
 
 namespace Hahn.ApplicatonProcess.May2020.Domain.Repositories
 {
