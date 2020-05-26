@@ -1,0 +1,29 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.ApplicatonProcess.May2020.Domain", "Hahn.ApplicatonProcess.May2020.Domain\Hahn.ApplicatonProcess.May2020.Domain.csproj", "{F02333A0-3FCF-4387-B087-8B186D3508F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.ApplicatonProcess.May2020.Data", "Hahn.ApplicatonProcess.May2020.Data\Hahn.ApplicatonProcess.May2020.Data.csproj", "{4EDBA1C5-6D3B-4DE3-879C-4AF0BD58B85A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.ApplicatonProcess.May2020.Web", "Hahn.ApplicatonProcess.May2020.Web\Hahn.ApplicatonProcess.May2020.Web.csproj", "{577D909C-E678-4BA9-B8C7-8F130D340B4A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F02333A0-3FCF-4387-B087-8B186D3508F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F02333A0-3FCF-4387-B087-8B186D3508F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F02333A0-3FCF-4387-B087-8B186D3508F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F02333A0-3FCF-4387-B087-8B186D3508F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EDBA1C5-6D3B-4DE3-879C-4AF0BD58B85A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EDBA1C5-6D3B-4DE3-879C-4AF0BD58B85A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EDBA1C5-6D3B-4DE3-879C-4AF0BD58B85A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EDBA1C5-6D3B-4DE3-879C-4AF0BD58B85A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{577D909C-E678-4BA9-B8C7-8F130D340B4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{577D909C-E678-4BA9-B8C7-8F130D340B4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{577D909C-E678-4BA9-B8C7-8F130D340B4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{577D909C-E678-4BA9-B8C7-8F130D340B4A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
