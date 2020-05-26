@@ -1,4 +1,5 @@
 ﻿using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 using FluentValidation.Validators;
 
@@ -16,24 +17,21 @@ namespace Hahn.ApplicatonProcess.May2020.Web.Validators.Custom
         protected override bool IsValid(PropertyValidatorContext context)
         {
             var countryName = (string)context.PropertyValue;
-            //var response = await _httpClient.GetAsync($"https://restcountries.eu/rest/v2/name/{countryName}?fullText=true");
-            bool isValid = false;
+            var response = _httpClient.GetAsync($"https://restcountries.eu/rest/v2/name/{countryName}?fullText=true").Result;
+            return response.IsSuccessStatusCode;
+        }
 
-            Task.Run(async () =>
+        protected override async Task<bool> IsValidAsync(PropertyValidatorContext context, CancellationToken cancellation)
+        {
+            var countryName = (string)context.PropertyValue;
+            var response = await _httpClient.GetAsync($"https://restcountries.eu/rest/v2/name/{countryName}?fullText=true");
+
+            if (response.IsSuccessStatusCode)
             {
-                var response = await _httpClient.GetAsync($"https://restcountries.eu/rest/v2/name/{countryName}?fullText=true");
+                return true;
+            }
 
-                if (response.IsSuccessStatusCode)
-                {
-                    isValid = true;
-                }
-                else
-                {
-                    isValid = false;
-                }
-            });
-
-            return isValid;
+            return false;
         }
     }
 }

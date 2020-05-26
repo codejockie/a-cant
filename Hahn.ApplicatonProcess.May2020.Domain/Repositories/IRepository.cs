@@ -7,7 +7,7 @@ namespace Hahn.ApplicatonProcess.May2020.Domain.Repositories
     public interface IRepository<T> where T : Entity
     {
         Task<T> AddAsync(T entity);
-        Task<T> GetByIdAsync(int id);
+        Task<T> GetByIdAsync(long id);
         Task UpdateAsync(T entity);
         Task DeleteAsync(T entity);
     }
