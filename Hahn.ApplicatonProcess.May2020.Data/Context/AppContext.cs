@@ -1,10 +1,14 @@
-﻿using System;
+﻿using Hahn.ApplicatonProcess.May2020.Domain.Models;
+using Microsoft.EntityFrameworkCore;
+
 namespace Hahn.ApplicatonProcess.May2020.Data.Context
 {
-    public class AppContext
+    public class AppContext : DbContext
     {
-        public AppContext()
+        public AppContext(DbContextOptions options) : base(options)
         {
         }
+
+        public DbSet<Applicant> Applicants { get; set; }
     }
 }
