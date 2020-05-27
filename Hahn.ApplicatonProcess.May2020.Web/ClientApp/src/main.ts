@@ -4,6 +4,7 @@ import { Aurelia } from "aurelia-framework"
 import { TCustomAttribute } from "aurelia-i18n"
 import * as environment from "../config/environment.json"
 import "bootstrap/dist/css/bootstrap.css"
+import "./styles.css"
 
 export function configure(aurelia: Aurelia) {
   aurelia.use
@@ -25,7 +26,10 @@ export function configure(aurelia: Aurelia) {
       })
     })
     .plugin(PLATFORM.moduleName("aurelia-validation"))
-    .plugin(PLATFORM.moduleName("aurelia-dialog"))
+    .plugin(PLATFORM.moduleName("aurelia-dialog"), (config) => {
+      config.useDefaults()
+      config.useCSS('')
+    })
 
   aurelia.use.developmentLogging(environment.debug ? "debug" : "warn")
 
