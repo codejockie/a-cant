@@ -7,7 +7,7 @@
     </a>
     <div class="form-group">
       <select class="form-control" id="language" change.delegate="changeLanguage($event)" value.bind="locale">
-        <option value="${lang.locale}" repeat.for="lang of languages">${lang.lang}</option>
+        <option value="${lang.locale}" repeat.for="lang of languages" i18n="${lang.key}">${lang.lang}</option>
       </select>
     </div>
   </nav>
