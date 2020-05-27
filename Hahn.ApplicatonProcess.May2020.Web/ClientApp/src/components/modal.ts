@@ -1,5 +1,5 @@
-import { inject } from 'aurelia-framework';
-import { DialogController } from 'aurelia-dialog';
+import { inject } from "aurelia-framework"
+import { DialogController } from "aurelia-dialog"
 
 @inject(DialogController)
 export class Prompt {
@@ -7,13 +7,13 @@ export class Prompt {
   message: string
 
   constructor(private controller) {
-    this.controller = controller;
-    this.answer = null;
+    this.controller = controller
+    this.answer = null
 
-    controller.settings.centerHorizontalOnly = true;
+    controller.settings.centerHorizontalOnly = true
   }
 
   activate(message) {
-    this.message = message;
+    this.message = message
   }
 }
