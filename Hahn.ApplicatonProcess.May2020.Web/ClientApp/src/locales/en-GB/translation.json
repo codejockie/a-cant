@@ -1,0 +1,34 @@
+{
+  "address": "Address",
+  "title": "Applicant",
+  "name": "Name",
+  "familyName": "Family Name",
+  "age": "Age",
+  "email": "Email Address",
+  "countryOfOrigin": "Country of Origin",
+  "hired": "Hired",
+  "buttons": {
+    "cancel": "Cancel",
+    "ok": "Ok",
+    "reset": "Reset",
+    "send": "Send"
+  },
+  "dialogs": {
+    "resetMessage": "Are you sure you want to reset all fields?"
+  },
+  "errors": {
+    "name": "Name is required",
+    "familyName": "Family name is required",
+    "age": "Age is required",
+    "invalidAge": "Age must be between 20 and 60",
+    "email": "Email address is required",
+    "invalidEmail": "Email address is invalid",
+    "countryOfOrigin": "Country of origin is required",
+    "address": "Address is required"
+  },
+  "locales": {
+    "en": "English",
+    "de": "German",
+    "ja": "Japanese"
+  }
+}

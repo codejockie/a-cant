@@ -1,0 +1,26 @@
+<template>
+  <require from="resources/elements/applicant"></require>
+
+  <nav class="navbar sticky-top navbar-light" style="background-color: #e3f2fd;">
+    <a class="navbar-brand" href="#">
+      A-cant
+    </a>
+    <div class="form-group">
+      <select class="form-control" id="language" change.delegate="changeLanguage($event)" value.bind="locale">
+        <option value="${lang.locale}" repeat.for="lang of languages">${lang.lang}</option>
+      </select>
+    </div>
+  </nav>
+  <div class="container">
+    <form id="applicantForm" submit.delegate="send()">
+      <applicant applicant.bind="applicant"></applicant>
+      <div class="form-group row">
+        <div class="col-sm-10">
+          <button type="submit" class="btn btn-primary" disabled.bind="!isValid" i18n="buttons.send">Send</button>
+          <button type="reset" class="btn btn-secondary" click.delegate="reset()" disabled.bind="disableReset"
+            i18n="buttons.reset">Reset</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</template>

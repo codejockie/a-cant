@@ -1,0 +1,34 @@
+{
+  "address": "Adresse",
+  "title": "Antragsteller",
+  "name": "Namen",
+  "familyName": "Familienname",
+  "age": "Alter",
+  "email": "E-Mail-Adresse",
+  "countryOfOrigin": "Herkunftsland",
+  "hired": "Eingestellt",
+  "buttons": {
+    "cancel": "Abbrechen",
+    "ok": "Okay",
+    "reset": "Zurücksetzen",
+    "send": "Senden"
+  },
+  "dialogs": {
+    "resetMessage": "Möchten Sie wirklich alle Felder zurücksetzen?"
+  },
+  "errors": {
+    "name": "Name ist erforderlich",
+    "familyName": "Familienname ist erforderlich",
+    "age": "Alter ist erforderlich",
+    "invalidAge": "Das Alter muss zwischen 20 und 60 Jahre alt sein",
+    "email": "E-Mail-Adresse ist erforderlich",
+    "invalidEmail": "E-Mail-Adresse ist ungültig",
+    "countryOfOrigin": "Herkunftsland ist erforderlich",
+    "address": "Adresse ist erforderlich"
+  },
+  "locales": {
+    "en": "Englisch",
+    "de": "Deutsch",
+    "ja": "Japanisch"
+  }
+}

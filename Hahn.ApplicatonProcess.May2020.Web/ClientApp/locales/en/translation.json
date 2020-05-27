@@ -1,0 +1,13 @@
+{
+  "title": "Applicant",
+  "name": "Name",
+  "familyName": "Family Name",
+  "age": "Age",
+  "email": "Email Address",
+  "countryOfOrigin": "Country of Origin",
+  "hired": "Hired",
+  "buttons": {
+    "reset": "Reset",
+    "send": "Send"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "address": "住所",
+  "title": "申請者",
+  "name": "名前",
+  "familyName": "家族名",
+  "age": "年齢",
+  "email": "メールアドレス",
+  "countryOfOrigin": "原産国",
+  "hired": "雇った",
+  "buttons": {
+    "cancel": "キャンセル",
+    "ok": "続行",
+    "reset": "リセット",
+    "send": "送信して"
+  },
+  "dialogs": {
+    "resetMessage": "すべてのフィールドをリセットしますか?"
+  },
+  "errors": {
+    "name": "名前が必要です",
+    "familyName": "姓名が必要です",
+    "age": "年齢が必要です",
+    "invalidAge": "年齢は20歳から60歳の間でなければなりません",
+    "email": "メールアドレスが必要です",
+    "invalidEmail": "電子メール アドレスが無効です",
+    "countryOfOrigin": "原産国が必要です",
+    "address": "アドレスが必要です"
+  },
+  "locales": {
+    "en": "ドイツ語",
+    "de": "ドイツ語",
+    "ja": "日本語"
+  }
+}
