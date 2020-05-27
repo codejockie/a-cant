@@ -47,14 +47,13 @@ export class App {
     this.locale = value
     this.i18n.setLocale(value)
     localStorage.setItem("locale", value)
-    this.populateLanguages()
   }
 
   populateLanguages() {
     this.languages = [
-      { locale: "en-GB", lang: this.i18n.tr("locales.en") },
-      { locale: "de-DE", lang: this.i18n.tr("locales.de") },
-      { locale: "ja-JP", lang: this.i18n.tr("locales.ja") },
+      { key: "locales.en", lang: "English", locale: "en-GB" },
+      { key: "locales.de", lang: "German", locale: "de-DE" },
+      { key: "locales.ja", lang: "Japanese", locale: "ja-JP" },
     ]
   }
 
@@ -93,11 +92,9 @@ export class App {
       name,
     } = this.applicant
 
-    const validAge = age ? +age >= 20 && +age < 61 : false
-
     if (
       !address &&
-      !validAge &&
+      !age &&
       !countryOfOrigin &&
       !emailAddress &&
       !familyName &&
