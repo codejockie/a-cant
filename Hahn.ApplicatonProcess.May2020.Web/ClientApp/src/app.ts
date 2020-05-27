@@ -6,7 +6,6 @@ import { I18N } from "aurelia-i18n"
 import { DialogService } from "aurelia-dialog"
 import { inject, NewInstance } from "aurelia-dependency-injection"
 import { Prompt } from "components/modal"
-import { Applicant } from "resources/models/Applicant"
 import { BootstrapFormRenderer } from "resources/validation/validation-renderer"
 
 @inject(NewInstance.of(ValidationController), I18N, DialogService)
@@ -24,13 +23,13 @@ export class App {
   }
 
   constructor(
-    private validationController: ValidationController,
+    private controller: ValidationController,
     private i18n: any,
     private dialogService
   ) {
     this.i18n = i18n
     this.dialogService = dialogService
-    this.validationController.addRenderer(new BootstrapFormRenderer())
+    this.controller.addRenderer(new BootstrapFormRenderer())
   }
 
   activate() {
@@ -58,47 +57,30 @@ export class App {
   }
 
   get isValid() {
-    const {
-      address,
-      age,
-      countryOfOrigin,
-      emailAddress,
-      familyName,
-      name,
-    } = this.applicant
-
+    const { age } = this.applicant
     const validAge = age ? +age >= 20 && +age < 61 : false
 
     if (
-      !address ||
+      !this.applicant.address ||
       !validAge ||
-      !countryOfOrigin ||
-      !emailAddress ||
-      !familyName ||
-      !name
+      !this.applicant.countryOfOrigin ||
+      !this.applicant.emailAddress ||
+      !this.applicant.familyName ||
+      !this.applicant.name
     ) {
       return false
     }
-    return this.validationController.errors.length < 1
+    return this.controller.errors.length < 1
   }
 
   get disableReset() {
-    const {
-      address,
-      age,
-      countryOfOrigin,
-      emailAddress,
-      familyName,
-      name,
-    } = this.applicant
-
     if (
-      !address &&
-      !age &&
-      !countryOfOrigin &&
-      !emailAddress &&
-      !familyName &&
-      !name
+      !this.applicant.address &&
+      !this.applicant.age &&
+      !this.applicant.countryOfOrigin &&
+      !this.applicant.emailAddress &&
+      !this.applicant.familyName &&
+      !this.applicant.name
     ) {
       return true
     }
@@ -109,8 +91,7 @@ export class App {
   reset() {
     this.dialogService
       .open({
-        viewModel: Prompt,
-        model: this.i18n.tr("dialogs.resetMessage"),
+        viewModel: Prompt
       })
       .whenClosed((response) => {
         if (!response.wasCancelled) {
@@ -121,40 +102,18 @@ export class App {
           this.applicant.familyName = ""
           this.applicant.hired = ""
           this.applicant.name = ""
-          this.validationController.reset()
+          this.controller.reset()
         }
       })
   }
 
   send() {
-    const {
-      address,
-      age,
-      countryOfOrigin,
-      emailAddress,
-      familyName,
-      hired,
-      name,
-    } = this.applicant
-
-    const applicant: Applicant = {
-      address,
-      age: +age,
-      countryOfOrigin,
-      emailAddress,
-      familyName,
-      hired: Boolean(hired),
-      name,
-    }
-
-    this.validationController
-      .validate()
-      .then((result: ControllerValidateResult) => {
-        if (result.valid) {
-          console.log("Validation successful!")
-        } else {
-          console.log("Validation failed!")
-        }
-      })
+    this.controller.validate().then((result: ControllerValidateResult) => {
+      if (result.valid) {
+        console.log("Validation successful!")
+      } else {
+        console.log("Validation failed!")
+      }
+    })
   }
 }
