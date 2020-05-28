@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.ApplicatonProcess.May2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.ApplicatonProcess.May2020.Web", "Hahn.ApplicatonProcess.May2020.Web\Hahn.ApplicatonProcess.May2020.Web.csproj", "{577D909C-E678-4BA9-B8C7-8F130D340B4A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.ApplicatonProcess.Application.Tests", "Hahn.ApplicatonProcess.Application.Tests\Hahn.ApplicatonProcess.Application.Tests.csproj", "{30E01B25-D6D5-404D-A342-43B926D8BC3C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,5 +27,9 @@ Global
 		{577D909C-E678-4BA9-B8C7-8F130D340B4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{577D909C-E678-4BA9-B8C7-8F130D340B4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{577D909C-E678-4BA9-B8C7-8F130D340B4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30E01B25-D6D5-404D-A342-43B926D8BC3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30E01B25-D6D5-404D-A342-43B926D8BC3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30E01B25-D6D5-404D-A342-43B926D8BC3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30E01B25-D6D5-404D-A342-43B926D8BC3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
