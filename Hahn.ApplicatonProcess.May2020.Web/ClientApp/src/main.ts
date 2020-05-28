@@ -26,7 +26,7 @@ export function configure(aurelia: Aurelia) {
     .plugin(PLATFORM.moduleName("aurelia-validation"))
     .plugin(PLATFORM.moduleName("aurelia-dialog"), (config) => {
       config.useDefaults()
-      config.useCSS('')
+      config.useCSS("")
     })
 
   aurelia.use.developmentLogging(environment.debug ? "debug" : "warn")
