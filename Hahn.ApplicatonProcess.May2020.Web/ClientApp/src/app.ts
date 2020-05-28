@@ -1,4 +1,5 @@
 import { I18N } from "aurelia-i18n"
+import { PLATFORM } from "aurelia-framework"
 import { inject } from "aurelia-dependency-injection"
 import { RouterConfiguration, Router } from "aurelia-router"
 
@@ -16,8 +17,9 @@ export class App {
     config.title = "a-cant"
     config.map([
       { route: "", name: "applicant", moduleId: "resources/elements/applicant" },
-      { route: "success", name: "success", moduleId: "resources/elements/success" },
+      { route: "success/:id?", name: "success", moduleId: PLATFORM.moduleName("resources/elements/success") },
     ])
+    config.mapUnknownRoutes(PLATFORM.moduleName("resources/elements/applicant"))
     this.router = router
   }
 
@@ -26,6 +28,8 @@ export class App {
     if (locale) {
       this.locale = locale
       this.i18n.setLocale(locale)
+      this.populateLanguages()
+    } else {
       this.populateLanguages()
     }
   }
