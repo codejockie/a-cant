@@ -1,0 +1,19 @@
+<template>
+  <div class="alert alert-success" i18n="success.message" role="alert">
+    Request was successfully sent.
+  </div>
+  <div class="code">
+    <code>
+      {
+        <div class="code">
+          <code>
+            <div repeat.for="key of translationKeys">
+              <span i18n="${key}"></span>:
+              <span>${applicant[key]}</span>
+            </div>
+          </code>
+        </div>
+      }
+  </code>
+  </div>
+</template>
