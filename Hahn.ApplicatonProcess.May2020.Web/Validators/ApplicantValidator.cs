@@ -1,8 +1,6 @@
 ﻿using System.Net.Http;
 using FluentValidation;
 using Hahn.ApplicatonProcess.May2020.Data.Models;
-using Hahn.ApplicatonProcess.May2020.Domain.Entities;
-using Hahn.ApplicatonProcess.May2020.Web.Validators.Custom;
 
 namespace Hahn.ApplicatonProcess.May2020.Web.Validators
 {
