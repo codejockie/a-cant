@@ -1,10 +1,11 @@
 {
+  "id": "Id",
   "address": "Adresse",
-  "title": "Antragsteller",
+  "title": "Anmeldeformular",
   "name": "Namen",
   "familyName": "Familienname",
   "age": "Alter",
-  "email": "E-Mail-Adresse",
+  "emailAddress": "E-Mail-Adresse",
   "countryOfOrigin": "Herkunftsland",
   "hired": "Eingestellt",
   "buttons": {
@@ -14,6 +15,7 @@
     "send": "Senden"
   },
   "dialogs": {
+    "errorMessage": "Die folgenden Fehler sind während der Verarbeitung der Anforderung aufgetreten.",
     "resetMessage": "Möchten Sie wirklich alle Felder zurücksetzen?"
   },
   "errors": {
@@ -21,14 +23,26 @@
     "familyName": "Familienname ist erforderlich",
     "age": "Alter ist erforderlich",
     "invalidAge": "Das Alter muss zwischen 20 und 60 Jahre alt sein",
-    "email": "E-Mail-Adresse ist erforderlich",
+    "emailAddress": "E-Mail-Adresse ist erforderlich",
     "invalidEmail": "E-Mail-Adresse ist ungültig",
     "countryOfOrigin": "Herkunftsland ist erforderlich",
-    "address": "Adresse ist erforderlich"
+    "address": "Adresse ist erforderlich",
+    "api": {
+      "Age": "'Alter' muss zwischen 20 und 60 Jahre alt sein.",
+      "Name": "'Name' darf nicht leer sein.",
+      "Address": "'Adresse' darf nicht leer sein.",
+      "FamilyName": "Die Länge von 'Familienname' muss mindestens 5 Zeichen lang sein. Sie haben 4 Zeichen eingegeben.",
+      "EmailAddress": "'E-Mail-Adresse' ist keine gültige E-Mail-Adresse.",
+      "CountryOfOrigin": "'Herkunftsland' muss ein gültiges Land sein"
+    }
   },
   "locales": {
     "en": "Englisch",
     "de": "Deutsch",
     "ja": "Japanisch"
+  },
+  "success": {
+    "message": "Die Anforderung wurde erfolgreich gesendet.",
+    "title": "Erfolg!"
   }
 }
