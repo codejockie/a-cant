@@ -1,0 +1,14 @@
+<template>
+  <ux-dialog>
+    <ux-dialog-body>
+      <h5 i18n="dialogs.errorMessage">The following error(s) occurred while processing request.</h5>
+      <ul>
+        <li class="error-feedback" repeat.for="error of errors" i18n="errors.api.${error}">${error}</li>
+      </ul>
+    </ux-dialog-body>
+
+    <ux-dialog-footer>
+      <button class="btn btn-primary" click.trigger="controller.ok()" i18n="buttons.ok">Okay</button>
+    </ux-dialog-footer>
+  </ux-dialog>
+</template>
