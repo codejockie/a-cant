@@ -3,8 +3,6 @@ import Backend from "i18next-xhr-backend"
 import { Aurelia } from "aurelia-framework"
 import { TCustomAttribute } from "aurelia-i18n"
 import * as environment from "../config/environment.json"
-import "bootstrap/dist/css/bootstrap.css"
-import "./styles.css"
 
 export function configure(aurelia: Aurelia) {
   aurelia.use

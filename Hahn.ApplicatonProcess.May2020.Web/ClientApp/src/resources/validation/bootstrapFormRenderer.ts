@@ -16,8 +16,8 @@ export class BootstrapFormRenderer {
   }
 
   add(element: Element, result: ValidateResult) {
-    const inputContainer = element.closest("div")
-    if (!inputContainer) {
+    const formGroup = element.closest(".form-group")
+    if (!formGroup) {
       return
     }
 
@@ -31,18 +31,13 @@ export class BootstrapFormRenderer {
       message.className = "help-block invalid-feedback" // 'help-block validation-message';
       message.textContent = result.message
       message.id = `validation-message-${result.id}`
-      inputContainer.appendChild(message)
+      formGroup.appendChild(message)
     }
-    // else {
-    //     if (!element.classList.contains('is-invalid')) {
-    //       element.classList.add('is-valid');
-    //     }
-    // }
   }
 
   remove(element: Element, result: ValidateResult) {
-    const inputContainer = element.closest("div")
-    if (!inputContainer) {
+    const formGroup = element.closest(".form-group")
+    if (!formGroup) {
       return
     }
 
@@ -52,18 +47,18 @@ export class BootstrapFormRenderer {
       }
     } else {
       // remove help-block
-      const message = inputContainer.querySelector(
+      const message = formGroup.querySelector(
         `#validation-message-${result.id}`
       )
       if (message) {
-        inputContainer.removeChild(message)
+        formGroup.removeChild(message)
 
         // remove the has-error class from the enclosing form-group div
         if (
-          inputContainer.querySelectorAll(".help-block.invalid-feedback")
+          formGroup.querySelectorAll(".help-block.invalid-feedback")
             .length === 0
         ) {
-          inputContainer.classList.remove("is-invalid")
+          formGroup.classList.remove("is-invalid")
         }
       }
     }
