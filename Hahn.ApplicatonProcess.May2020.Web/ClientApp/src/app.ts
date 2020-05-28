@@ -28,10 +28,8 @@ export class App {
     if (locale) {
       this.locale = locale
       this.i18n.setLocale(locale)
-      this.populateLanguages()
-    } else {
-      this.populateLanguages()
     }
+    this.populateLanguages()
   }
 
   changeLanguage(event: any) {
