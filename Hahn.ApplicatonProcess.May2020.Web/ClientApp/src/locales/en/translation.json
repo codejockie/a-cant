@@ -1,0 +1,47 @@
+{
+  "id": "ID",
+  "address": "Address",
+  "title": "Applicant Form",
+  "name": "Name",
+  "familyName": "Family Name",
+  "age": "Age",
+  "emailAddress": "Email Address",
+  "countryOfOrigin": "Country of Origin",
+  "hired": "Hired",
+  "buttons": {
+    "cancel": "Cancel",
+    "ok": "Ok",
+    "reset": "Reset",
+    "send": "Send"
+  },
+  "dialogs": {
+    "errorMessage": "The following error(s) occurred while processing request.",
+    "resetMessage": "Are you sure you want to reset all fields?"
+  },
+  "errors": {
+    "name": "Name is required",
+    "familyName": "Family name is required",
+    "age": "Age is required",
+    "invalidAge": "Age must be between 20 and 60",
+    "emailAddress": "Email address is required",
+    "invalidEmail": "Email address is invalid",
+    "countryOfOrigin": "Country of origin is required",
+    "address": "Address is required",
+    "api": {
+      "Age": "'Age' must be between 20 and 60.",
+      "Name": "'Name' must not be empty.",
+      "Address": "'Address' must not be empty.",
+      "FamilyName": "The length of 'Family Name' must be at least 5 characters. You entered 4 characters.",
+      "EmailAddress": "'Email Address' is not a valid email address.",
+      "CountryOfOrigin": "Country of Origin must be a valid country"
+    }
+  },
+  "locales": {
+    "en": "English",
+    "de": "German",
+    "ja": "Japanese"
+  },
+  "success": {
+    "message": "Request was successfully sent."
+  }
+}
