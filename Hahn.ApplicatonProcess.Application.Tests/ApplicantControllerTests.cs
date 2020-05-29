@@ -220,5 +220,34 @@ namespace Hahn.ApplicatonProcess.Application.Tests
       Assert.IsType<NotFoundResult>(result);
       mock.Verify(m => m.Update(applicant), Times.Never());
     }
+    
+    [Fact]
+    public async Task Put_Returns_NoContent_On_Successful_Update()
+    {
+      var applicant = new ApplicantModel {
+        ID = 1,
+        Age = 25,
+        Hired = true,
+        Name = "James",
+        FamilyName = "Smith",
+        CountryOfOrigin = "Nigeria",
+        EmailAddress = "jamessmith@example.com",
+        Address = "Block 10B New State Avenue",
+      };
+      // Arrange - create the mock service
+      Mock<IApplicantService> mock = new Mock<IApplicantService>();
+      mock.Setup(m => m.GetApplicantById(_applicant.ID)).ReturnsAsync(_applicant);
+      mock.Setup(m => m.Update(applicant)).Returns(Task.CompletedTask);
+
+      // Arrange - create a controller
+      ApplicantController target = new ApplicantController(mock.Object);
+
+      // Action
+      var result = await target.Put(1, _applicant);
+
+      // Assert
+      Assert.IsType<NoContentResult>(result);
+      mock.Verify(m => m.Update(_applicant), Times.Once());
+    }
   }
 }
