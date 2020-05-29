@@ -21,7 +21,7 @@ namespace Hahn.ApplicatonProcess.Application.Tests
     {
       // Arrange - create the mock service
       Mock<IApplicantService> mock = new Mock<IApplicantService>();
-      mock.Setup(m => m.GetApplicantById(1)).Returns(Task.FromResult(new ApplicantModel
+      mock.Setup(m => m.GetApplicantById(1)).ReturnsAsync(new ApplicantModel
       {
         ID = 1,
         Age = 24,
@@ -31,7 +31,7 @@ namespace Hahn.ApplicatonProcess.Application.Tests
         CountryOfOrigin = "Germany",
         EmailAddress = "johndoe@example.com",
         Address = "Block 10A New State Avenue",
-      }));
+      });
 
       // Arrange - create a controller
       ApplicantController target = new ApplicantController(mock.Object);
@@ -40,6 +40,45 @@ namespace Hahn.ApplicatonProcess.Application.Tests
       ApplicantModel result = GetViewModel<ApplicantModel>(await target.Get(1));
 
       // Assert
+      Assert.Equal("John Doe", result.Name);
+      Assert.Equal("Smith", result.FamilyName);
+      Assert.Equal("Block 10A New State Avenue", result.Address);
+    }
+    
+    [Fact]
+    public async Task Post_Creates_An_Applicant()
+    {
+      var applicant = new ApplicantModel {
+        Age = 24,
+        Hired = true,
+        Name = "John Doe",
+        FamilyName = "Smith",
+        CountryOfOrigin = "Germany",
+        EmailAddress = "johndoe@example.com",
+        Address = "Block 10A New State Avenue",
+      };
+      // Arrange - create the mock service
+      Mock<IApplicantService> mock = new Mock<IApplicantService>();
+      mock.Setup(m => m.Create(applicant)).ReturnsAsync(new ApplicantModel
+      {
+        ID = 1,
+        Age = 24,
+        Hired = true,
+        Name = "John Doe",
+        FamilyName = "Smith",
+        CountryOfOrigin = "Germany",
+        EmailAddress = "johndoe@example.com",
+        Address = "Block 10A New State Avenue",
+      });
+
+      // Arrange - create a controller
+      ApplicantController target = new ApplicantController(mock.Object);
+
+      // Action
+      ApplicantModel result = GetViewModel<ApplicantModel>(await target.Post(applicant));
+
+      // Assert
+      Assert.Equal(1, result.ID);
       Assert.Equal("John Doe", result.Name);
       Assert.Equal("Smith", result.FamilyName);
       Assert.Equal("Block 10A New State Avenue", result.Address);
