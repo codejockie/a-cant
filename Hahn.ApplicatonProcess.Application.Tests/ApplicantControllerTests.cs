@@ -11,6 +11,20 @@ namespace Hahn.ApplicatonProcess.Application.Tests
 {
   public class ApplicantControllerTests
   {
+    private ApplicantModel _applicant;
+    public ApplicantControllerTests() {
+      _applicant =  new ApplicantModel {
+        ID = 1,
+        Age = 24,
+        Hired = true,
+        Name = "John Doe",
+        FamilyName = "Smith",
+        CountryOfOrigin = "Germany",
+        EmailAddress = "johndoe@example.com",
+        Address = "Block 10A New State Avenue",
+      };
+    }
+    
     T GetViewModel<T>(IActionResult result) where T : class
     {
       return (result as ObjectResult).Value as T;
@@ -110,11 +124,11 @@ namespace Hahn.ApplicatonProcess.Application.Tests
       // Action
       ApplicantModel result = GetViewModel<ApplicantModel>(await target.Delete(applicant.ID));
 
+      // Assert
+      Assert.Equal(24, result.Age);
       // Assert - ensure that the service delete method was
       // called with the correct Applicant
       mock.Verify(m => m.Delete(applicant));
-      // Assert
-      Assert.Equal(24, result.Age);
     }
 
     [Fact]
@@ -143,11 +157,68 @@ namespace Hahn.ApplicatonProcess.Application.Tests
       // Action
       var result = await target.Delete(applicant.ID);
 
+      // Assert
+      Assert.IsType<NotFoundResult>(result);
       // Assert - ensure that the service delete method was
       // not called
       mock.Verify(m => m.Delete(applicant), Times.Never());
+    }
+    
+    [Fact]
+    public async Task Put_Returns_BadRequest_For_Non_Matching_ID()
+    {
+      var applicant = new ApplicantModel {
+        ID = 1,
+        Age = 24,
+        Hired = true,
+        Name = "John Doe",
+        FamilyName = "Smith",
+        CountryOfOrigin = "Germany",
+        EmailAddress = "johndoe@example.com",
+        Address = "Block 10A New State Avenue",
+      };
+      // Arrange - create the mock service
+      Mock<IApplicantService> mock = new Mock<IApplicantService>();
+      mock.Setup(m => m.Update(applicant)).Returns(Task.CompletedTask);
+
+      // Arrange - create a controller
+      ApplicantController target = new ApplicantController(mock.Object);
+
+      // Action
+      var result = await target.Put(2, applicant);
+
+      // Assert
+      Assert.IsType<BadRequestResult>(result);
+      mock.Verify(m => m.Update(applicant), Times.Never());
+    }
+    
+    [Fact]
+    public async Task Put_Returns_NotFound_When_Applicant_Not_Found()
+    {
+      var applicant = new ApplicantModel {
+        ID = 1,
+        Age = 24,
+        Hired = true,
+        Name = "John Doe",
+        FamilyName = "Smith",
+        CountryOfOrigin = "Germany",
+        EmailAddress = "johndoe@example.com",
+        Address = "Block 10A New State Avenue",
+      };
+      // Arrange - create the mock service
+      Mock<IApplicantService> mock = new Mock<IApplicantService>();
+      mock.Setup(m => m.GetApplicantById(applicant.ID)).ReturnsAsync(() => null);
+      mock.Setup(m => m.Update(applicant)).Returns(Task.CompletedTask);
+
+      // Arrange - create a controller
+      ApplicantController target = new ApplicantController(mock.Object);
+
+      // Action
+      var result = await target.Put(1, applicant);
+
       // Assert
       Assert.IsType<NotFoundResult>(result);
+      mock.Verify(m => m.Update(applicant), Times.Never());
     }
   }
 }
