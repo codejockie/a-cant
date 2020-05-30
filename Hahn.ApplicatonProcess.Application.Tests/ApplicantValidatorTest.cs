@@ -158,5 +158,34 @@ namespace Hahn.ApplicatonProcess.Application.Tests
 
       Assert.False(isValid);
     }
+
+    [Fact]
+    public void WhenModelIsValid_ShouldNotHaveError()
+    {
+      _fakeHttpMessageHandler.Setup(f => f.Send(It.IsAny<HttpRequestMessage>())).Returns(new HttpResponseMessage
+      {
+        StatusCode = HttpStatusCode.OK,
+        Content = new StringContent(@"{
+          'name': 'Nigeria',
+          'message': 'Not Found'
+        }")
+      });
+
+      var model = new ApplicantModel
+      {
+        ID = 1,
+        Age = 24,
+        Hired = true,
+        Name = "James",
+        FamilyName = "Smith",
+        CountryOfOrigin = "Nigeria",
+        EmailAddress = "johndoe@example.com",
+        Address = "Block 10A New State Avenue",
+      };
+      var sut = new ApplicantValidator(_httpClient);
+      var isValid = sut.Validate(model).IsValid;
+
+      Assert.True(isValid);
+    }
   }
 }
