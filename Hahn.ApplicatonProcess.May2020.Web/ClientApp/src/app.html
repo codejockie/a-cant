@@ -7,10 +7,12 @@
     <a class="navbar-brand" href="#">
       A-cant
     </a>
-    <div class="form-group">
+    <div class="langDropdown">
+      <span class="fas fa-globe"></span>
       <select class="form-control" id="language" change.delegate="changeLanguage($event)" value.bind="locale">
         <option value="${lang.locale}" repeat.for="lang of languages" i18n="${lang.key}">${lang.lang}</option>
       </select>
+      <span class="fas fa-caret-down" aria-hidden="true"></span>
     </div>
   </nav>
   <div class="container">
