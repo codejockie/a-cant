@@ -9,15 +9,15 @@ export class App {
   locale: string
   router: Router
 
-  constructor(private i18n: any) {
+  constructor(private i18n: I18N) {
     this.i18n = i18n
   }
 
   configureRouter(config: RouterConfiguration, router: Router) {
     config.title = "a-cant"
     config.map([
-      { route: "", name: "applicant", moduleId: "resources/elements/applicant" },
-      { route: "success/:id?", name: "success", moduleId: PLATFORM.moduleName("resources/elements/success") },
+      { route: "", name: "applicant", moduleId: "resources/elements/applicant", title: "pages.applicant" },
+      { route: "success/:id?", name: "success", moduleId: PLATFORM.moduleName("resources/elements/success"), title: "pages.success" },
     ])
     config.mapUnknownRoutes(PLATFORM.moduleName("resources/elements/applicant"))
     this.router = router
