@@ -41,6 +41,10 @@
     "de": "German",
     "ja": "Japanese"
   },
+  "pages": {
+    "applicant": "Applicant",
+    "success": "Success"
+  },
   "success": {
     "message": "Request was successfully sent."
   }

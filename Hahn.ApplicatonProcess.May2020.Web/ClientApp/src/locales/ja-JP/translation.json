@@ -41,6 +41,10 @@
     "de": "ドイツ語",
     "ja": "日本語"
   },
+  "pages": {
+    "applicant": "申請者",
+    "success": "成功"
+  },
   "success": {
     "message": "要求は正常に送信されました。",
     "title": "成功！"

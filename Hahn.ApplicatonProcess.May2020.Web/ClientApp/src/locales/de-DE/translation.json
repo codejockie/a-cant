@@ -41,6 +41,10 @@
     "de": "Deutsch",
     "ja": "Japanisch"
   },
+  "pages": {
+    "applicant": "Antragsteller",
+    "success": "Erfolg"
+  },
   "success": {
     "message": "Die Anforderung wurde erfolgreich gesendet.",
     "title": "Erfolg!"
