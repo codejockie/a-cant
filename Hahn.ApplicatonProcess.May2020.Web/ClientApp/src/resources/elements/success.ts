@@ -5,7 +5,7 @@ import { Applicant } from "resources/models/Applicant"
 
 @inject(NewInstance.of(Http), Router)
 export class Success {
-  applicant: any
+  applicant: Applicant
   translationKeys: string[] = []
 
   constructor(private httpClient: Http, private router: Router) {
