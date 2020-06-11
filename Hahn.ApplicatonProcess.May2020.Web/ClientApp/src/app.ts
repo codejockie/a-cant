@@ -8,6 +8,8 @@ export class App {
   languages = []
   locale: string
   router: Router
+  showDropdown = false
+  localeIdentifier: string
 
   constructor(private i18n: I18N) {
     this.i18n = i18n
@@ -26,24 +28,37 @@ export class App {
   activate() {
     const locale = localStorage.getItem("locale")
     if (locale) {
-      this.locale = locale
-      this.i18n.setLocale(locale)
+      this.setLocale(locale)
     }
     this.populateLanguages()
+    this.setLocaleIdentifier(this.locale)
   }
 
-  changeLanguage(event: any) {
-    const { value } = event.target
-    this.locale = value
-    this.i18n.setLocale(value)
-    localStorage.setItem("locale", value)
+  selectLanguage(locale: string) {
+    if (this.locale == locale) return
+    this.setLocale(locale)
+    this.setLocaleIdentifier(locale)
+    localStorage.setItem("locale", locale)
   }
 
   populateLanguages() {
     this.languages = [
-      { key: "locales.en", lang: "English", locale: "en-GB" },
-      { key: "locales.de", lang: "German", locale: "de-DE" },
-      { key: "locales.ja", lang: "Japanese", locale: "ja-JP" },
+      { key: "locales.en", lang: "English", locale: "en-GB", identifier: "EN" },
+      { key: "locales.de", lang: "German", locale: "de-DE", identifier: "DE" },
+      { key: "locales.ja", lang: "Japanese", locale: "ja-JP", identifier: "JA" },
     ]
+  }
+
+  setLocale(locale: string) {
+    this.locale = locale
+    this.i18n.setLocale(locale)
+  }
+
+  setLocaleIdentifier(locale: string = "en-GB") {
+    this.localeIdentifier = this.languages.find(l => l.locale == locale)?.identifier
+  }
+
+  toggle() {
+    this.showDropdown = !this.showDropdown
   }
 }

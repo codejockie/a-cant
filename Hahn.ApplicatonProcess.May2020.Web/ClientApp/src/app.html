@@ -7,12 +7,28 @@
     <a class="navbar-brand" href="#">
       A-cant
     </a>
-    <div class="langDropdown">
-      <span class="fas fa-globe"></span>
-      <select class="form-control" id="language" change.delegate="changeLanguage($event)" value.bind="locale">
-        <option value="${lang.locale}" repeat.for="lang of languages" i18n="${lang.key}">${lang.lang}</option>
-      </select>
-      <span class="fas fa-caret-down" aria-hidden="true"></span>
+    <div class="navbar__lang-switcher">
+      <button class="btn navbar__dropdown-button" click.delegate="toggle()">
+        ${localeIdentifier}
+      </button>
+      <div class="navbar__dropdown-wrap" css="display: ${showDropdown ? 'block' : 'none'};">
+        <div class="navbar__dropdown-body">
+          <div class="navbar__lang-switcher-body">
+            <div class="supported-langs supported-langs_toolbar">
+              <div class="supported-langs__container">
+                <ul class="supported-langs__list">
+                  <li class="supported-langs__item ${lang.identifier == localeIdentifier ? 'supported-langs__item_current' : ''}" repeat.for="lang of languages">
+                    <a class="supported-langs__link" href="" click.delegate="selectLanguage(lang.locale)">
+                      <span class="supported-langs__brief">${lang.identifier}</span>
+                      <span class="supported-langs__title" i18n="${lang.key}">${lang.lang}</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </nav>
   <div class="container">

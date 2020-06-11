@@ -1,96 +1,241 @@
 /* Bootstrap container */
 .container {
-	padding-top: 1rem;
+  padding-top: 1rem;
 }
 
-/* Language Dropdown */
-#language {
-	position: relative;
-	padding-left: 1.7rem;
-	padding-right: 1rem;
-	-webkit-appearance: none;
-	appearance: none;
+/* Language Selector */
+.navbar__lang-switcher {
+  border-left: 2px solid #cbe7fb;
 }
 
-.langDropdown {
-	position: relative;
+.navbar__lang-switcher .navbar__dropdown-button {
+  align-items: center;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  font-size: 12px;
+  text-transform: uppercase;
 }
 
-.langDropdown span.fa-globe {
-  font-size: 0.99rem;
-  left: 0.5rem;
-	position: absolute;
-	top: 0.76rem;
-	z-index: 1000;
+.navbar__dropdown-button {
+  color: #696664;
 }
 
-.langDropdown span.fa-caret-down {
-  font-size: 0.99rem;
-	position: absolute;
-  right: 0.5rem;
-	top: 0.76rem;
-	z-index: 1000;
+.navbar__dropdown-button:hover {
+	color: #ba1000;
+}
+
+.navbar__lang-switcher .navbar__dropdown-button:before {
+  content: "\f0ac";
+  font-family: "Font Awesome 5 Free";
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.navbar__dropdown-button {
+  font: 16px BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica,
+    Arial, sans-serif;
+  line-height: inherit;
+}
+
+.navbar__dropdown-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.navbar .tablet-menu,
+.navbar__dropdown-wrap {
+  display: none;
+}
+
+.navbar__lang-switcher .navbar__dropdown-body {
+  right: -15px;
+  left: auto;
+  top: 12px;
+}
+
+.navbar__dropdown-body {
+  font-size: 14px;
+  line-height: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 190px;
+  border: 2px solid #e2e2e2;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+  background: #fff;
+}
+
+.navbar__lang-switcher .navbar__dropdown-body:before {
+  right: 28px;
+  left: auto;
+}
+
+.navbar__dropdown-body:before {
+  content: "";
+  position: absolute;
+  margin-left: -5px;
+  top: -7px;
+  right: 60px;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border: solid #e2e2e2;
+  border-width: 1px 0 0 1px;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.navbar__lang-switcher-body {
+  padding: 1rem 24px 0 24px;
+}
+
+.supported-langs {
+  width: 100%;
+  overflow: hidden;
+}
+
+.supported-langs__container {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row;
+  -ms-flex-flow: row;
+  flex-flow: row;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  margin: 0 -24px;
+}
+
+.supported-langs__list {
+  padding: 0 24px;
+  width: 205px;
+  max-height: 300px;
+}
+
+ul {
+  list-style: none;
+}
+
+.supported-langs__item:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.supported-langs__item_current .supported-langs__brief,
+.supported-langs__item_current .supported-langs__link,
+.supported-langs__item_current .supported-langs__link:hover {
+  color: #ba1000;
+}
+
+.supported-langs__link:hover {
+	text-decoration: none;
+}
+
+a:hover, a:active {
+	color: #ba1000;
+	text-decoration: underline;
+}
+
+.supported-langs__link {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.supported-langs__brief {
+  color: #919191;
+  margin-right: 12px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.supported-langs__title {
+  -webkit-flex: 0 1 100%;
+  -ms-flex: 0 1 100%;
+  flex: 0 1 100%;
+  padding-left: 28px;
+}
+
+:link, :visited {
+	text-decoration: none;
 }
 
 /* Success Styles */
 .code {
-	padding-left: 2rem;
+  padding-left: 2rem;
 }
 
 /* Error Modal Styles */
 .error-feedback {
-	width: 100%;
-	margin-top: 0.25rem;
-	font-size: 80%;
-	color: #dc3545;
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 80%;
+  color: #dc3545;
 }
 
 /* Modal Styles */
 ux-dialog-overlay {
-	bottom: 0;
-	left: 0;
-	position: fixed;
-	top: 0;
-	right: 0;
-	opacity: 0;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  opacity: 0;
 }
 
 ux-dialog-overlay.active {
-	opacity: 1;
+  opacity: 1;
 }
 
 ux-dialog-container {
-	display: block;
-	transition: opacity .2s linear;
-	opacity: 0;
-	overflow-x: hidden;
-	overflow-y: auto;
-	position: fixed;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	-webkit-overflow-scrolling: touch;
+  display: block;
+  transition: opacity 0.2s linear;
+  opacity: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-overflow-scrolling: touch;
 }
 
 ux-dialog-container.active {
-	opacity: 1;
+  opacity: 1;
 }
 
 ux-dialog-container > div {
-	padding: 30px;
+  padding: 30px;
 }
 
 ux-dialog-container > div > div {
-	width: 100%;
-	display: block;
-	min-width: 300px;
-	width: -moz-fit-content;
-	width: -webkit-fit-content;
-	width: fit-content;
-	height: -moz-fit-content;
-	height: -webkit-fit-content;
-	height: fit-content;
+  width: 100%;
+  display: block;
+  min-width: 300px;
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: -webkit-fit-content;
+  height: fit-content;
   margin: auto;
   margin-top: 40px;
 }
@@ -102,92 +247,92 @@ ux-dialog-container > div > div {
      * Prevent Chrome on Windows from adding a focus outline. For details, see
      * https://github.com/twbs/bootstrap/pull/10951
      */
-	outline: 0;
+  outline: 0;
 }
 
 ux-dialog {
-	width: 100%;
-	display: table;
-	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-	border: 1px solid rgba(0, 0, 0, 0.2);
-	border-radius: 5px;
-	padding: 3;
-	min-width: 300px;
-	width: -moz-fit-content;
-	width: -webkit-fit-content;
-	width: fit-content;
-	height: -moz-fit-content;
-	height: -webkit-fit-content;
-	height: fit-content;
-	margin: auto;
-	border-image-source: initial;
-	border-image-slice: initial;
-	border-image-width: initial;
-	border-image-outset: initial;
-	border-image-repeat: initial;
-	background: white;
+  width: 100%;
+  display: table;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 3;
+  min-width: 300px;
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: -webkit-fit-content;
+  height: fit-content;
+  margin: auto;
+  border-image-source: initial;
+  border-image-slice: initial;
+  border-image-width: initial;
+  border-image-outset: initial;
+  border-image-repeat: initial;
+  background: white;
 }
 
 ux-dialog > ux-dialog-header {
-	display: block;
-	padding: 16px;
-	border-bottom: 1px solid #e5e5e5;
+  display: block;
+  padding: 16px;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 ux-dialog > ux-dialog-header > button {
-	float: right;
-	border: none;
-	display: block;
-	width: 32px;
-	height: 32px;
-	background: none;
-	font-size: 22px;
-	line-height: 16px;
-	margin: -14px -16px 0 0;
-	padding: 0;
-	cursor: pointer;
+  float: right;
+  border: none;
+  display: block;
+  width: 32px;
+  height: 32px;
+  background: none;
+  font-size: 22px;
+  line-height: 16px;
+  margin: -14px -16px 0 0;
+  padding: 0;
+  cursor: pointer;
 }
 
 ux-dialog > ux-dialog-body {
-	display: block;
-	padding: 16px;
+  display: block;
+  padding: 16px;
 }
 
 ux-dialog > ux-dialog-footer {
-	display: block;
-	padding: 6px;
-	border-top: 1px solid #e5e5e5;
-	text-align: right;
+  display: block;
+  padding: 6px;
+  border-top: 1px solid #e5e5e5;
+  text-align: right;
 }
 
 ux-dialog > ux-dialog-footer button {
-	color: #333;
-	background-color: #fff;
-	padding: 6px 12px;
-	font-size: 14px;
-	text-align: center;
-	white-space: nowrap;
-	vertical-align: middle;
-	-ms-touch-action: manipulation;
-	touch-action: manipulation;
-	cursor: pointer;
-	background-image: none;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	margin: 5px 0 5px 5px;
+  color: #333;
+  background-color: #fff;
+  padding: 6px 12px;
+  font-size: 14px;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 5px 0 5px 5px;
 }
 
 ux-dialog > ux-dialog-footer button:disabled {
-	cursor: default;
-	opacity: 0.45;
+  cursor: default;
+  opacity: 0.45;
 }
 
 ux-dialog > ux-dialog-footer button:hover:enabled {
-	color: #333;
-	background-color: #e6e6e6;
-	border-color: #adadad;
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #adadad;
 }
 
 .ux-dialog-open {
-	overflow: hidden;
+  overflow: hidden;
 }
