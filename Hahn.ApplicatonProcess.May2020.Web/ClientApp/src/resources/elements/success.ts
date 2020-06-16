@@ -15,14 +15,14 @@ export class Success {
 
   canActivate(params) {
     if (!params.id) {
-      return this.router.navigateToRoute("")
+      return this.router.navigateToRoute("applicant")
     }
   }
 
   activate(params) {
     this.httpClient.getApplicant(params.id).then((response) => {
       if (response.status >= 400) {
-        return this.router.navigateToRoute("")
+        return this.router.navigateToRoute("applicant")
       }
       this.applicant = response as Applicant
       this.translationKeys = Object.keys(response as Applicant)
