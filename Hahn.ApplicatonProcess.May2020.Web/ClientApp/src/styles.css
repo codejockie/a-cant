@@ -57,7 +57,7 @@
 .navbar__lang-switcher .navbar__dropdown-body {
   right: -15px;
   left: auto;
-  top: 12px;
+  top: 0;
 }
 
 .navbar__dropdown-body {
