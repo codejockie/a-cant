@@ -35,15 +35,18 @@ namespace Hahn.ApplicatonProcess.May2020.Web
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddCors(options =>
+      {
+        options.AddDefaultPolicy(builder =>
         {
-          options.AddDefaultPolicy(builder =>
-                            {
-                              builder.WithOrigins("http://localhost:8080", "localhost:8080").AllowAnyHeader();
-                            });
+          builder.WithOrigins("http://localhost:8080").AllowAnyHeader();
         });
+      });
+
       services.AddControllers().AddFluentValidation();
+
       // In-Memory DB
-      services.AddDbContext<AppDbContext>(c => c.UseInMemoryDatabase("AppConnection"));
+      services.AddDbContext<AppDbContext>(c => c.UseInMemoryDatabase("InMem"));
+
       // Swagger UI
       services.AddSwaggerGen(c =>
       {
@@ -56,7 +59,7 @@ namespace Hahn.ApplicatonProcess.May2020.Web
           {
             Name = "John Kennedy",
             Email = string.Empty,
-            Url = new Uri("https://twitter.com/codejockie"),
+            Url = new Uri("https://github.com/codejockie"),
           },
           License = new OpenApiLicense
           {
@@ -64,6 +67,8 @@ namespace Hahn.ApplicatonProcess.May2020.Web
             Url = new Uri("https://example.com/license"),
           }
         });
+
+        // Enable examples
         c.ExampleFilters();
 
         // Set the comments path for the Swagger JSON and UI.
@@ -85,6 +90,12 @@ namespace Hahn.ApplicatonProcess.May2020.Web
       services.AddScoped<IApplicantService, ApplicantService>();
 
       services.AddAutoMapper(typeof(Startup));
+
+      // In production, the Aurelia files will be served from this directory
+      services.AddSpaStaticFiles(configuration =>
+      {
+        configuration.RootPath = "ClientApp/dist";
+      });
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -97,9 +108,7 @@ namespace Hahn.ApplicatonProcess.May2020.Web
 
       // Enable middleware to serve generated Swagger as a JSON endpoint.
       app.UseSwagger();
-
-      // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
-      // specifying the Swagger JSON endpoint.
+      // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
       app.UseSwaggerUI(c =>
       {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "A-cant API V1");
@@ -109,6 +118,10 @@ namespace Hahn.ApplicatonProcess.May2020.Web
 
       app.UseRouting();
 
+      app.UseStaticFiles();
+      
+      app.UseSpaStaticFiles();
+
       app.UseCors();
 
       app.UseAuthorization();
@@ -116,6 +129,16 @@ namespace Hahn.ApplicatonProcess.May2020.Web
       app.UseEndpoints(endpoints =>
       {
         endpoints.MapControllers();
+      });
+
+      app.UseSpa(spa =>
+      {
+        spa.Options.SourcePath = "ClientApp";
+
+        if (env.IsDevelopment())
+        {
+          spa.UseProxyToSpaDevelopmentServer("http://localhost:8080");
+        }
       });
     }
   }

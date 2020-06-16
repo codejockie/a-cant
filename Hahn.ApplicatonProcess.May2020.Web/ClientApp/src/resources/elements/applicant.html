@@ -39,9 +39,14 @@
       </div>
     </div>
     <div class="form-group">
-      <button type="submit" class="btn btn-primary" disabled.bind="isValid" i18n="buttons.send">Send</button>
-      <button type="reset" class="btn btn-secondary" click.delegate="reset()" disabled.bind="disableReset"
-        i18n="buttons.reset">Reset</button>
+      <div class="row">
+        <div class="col-6">
+          <button type="submit" class="btn btn-primary btn-block" disabled.bind="isValid" i18n="buttons.send">Send</button>
+        </div>
+        <div class="col-6">
+          <button type="reset" class="btn btn-secondary btn-block" click.delegate="reset()" disabled.bind="disableReset" i18n="buttons.reset">Reset</button>
+        </div>
+      </div>
     </div>
   </form>
 </template>
