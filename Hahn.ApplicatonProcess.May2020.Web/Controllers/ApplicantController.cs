@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using Hahn.ApplicatonProcess.May2020.Data.Models;
 using Hahn.ApplicatonProcess.May2020.Data.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Hahn.ApplicatonProcess.May2020.Web.Controllers
@@ -20,7 +19,7 @@ namespace Hahn.ApplicatonProcess.May2020.Web.Controllers
     }
 
     /// <summary>
-    /// Gets a specific applicant.
+    /// Gets an applicant.
     /// </summary>
     /// <param name="id" example="1">The applicant ID</param>
     [HttpGet("{id}")]
@@ -77,7 +76,7 @@ namespace Hahn.ApplicatonProcess.May2020.Web.Controllers
     }
 
     /// <summary>
-    /// Deletes a specific applicant.
+    /// Deletes an applicant.
     /// </summary>
     /// <param name="id" example="1">The applicant ID</param>
     [HttpDelete("{id}")]
